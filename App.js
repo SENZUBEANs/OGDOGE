@@ -1,6 +1,5 @@
 const { useState } = React;
-import { DollarSign, TrendingUp, Brain, Users, Star } from "https://cdn.skypack.dev/lucide-react";
-import "./styles.css";
+const { TrendingUp, Brain, Users, Star } = LucideReact;
 
 const PHASES = {
   TITLE: "title",
