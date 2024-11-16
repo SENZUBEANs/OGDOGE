@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { DollarSign, TrendingUp, Brain, Users, Star } from "lucide-react";
+const { useState } = React;
+import { DollarSign, TrendingUp, Brain, Users, Star } from "https://cdn.skypack.dev/lucide-react";
 import "./styles.css";
 
 const PHASES = {
