@@ -4,32 +4,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>D.O.G.E</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./styles.css" />
-    <style>
-      body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial;
-        background: #000;
-        color: white;
+    <script>
+      tailwind.config = {
+        content: ["./**/*.{html,js}"],
+        theme: {
+          extend: {},
+        },
+        plugins: [],
       }
-      .gradient-bg {
-        background: linear-gradient(180deg, #1a365d 0%, #4a1d96 100%);
-      }
-    </style>
+    </script>
   </head>
   <body>
     <div id="root"></div>
     
     <!-- React and ReactDOM -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/lucide-react@0.263.1/dist/umd/lucide-react.min.js" crossorigin></script>
     
     <!-- Your app scripts -->
-    <script type="module" src="./index.js"></script>
+    <script type="module">
+      import App from './App.js';
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(React.createElement(App));
+    </script>
   </body>
 </html>
