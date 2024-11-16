@@ -1,0 +1,70 @@
+/* Styles for the game */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  background: #000;
+  color: white;
+}
+
+.bg-gradient-custom {
+  background: linear-gradient(
+    180deg,
+    rgb(26, 54, 93) 0%,
+    rgb(74, 29, 150) 100%
+  );
+}
+
+.stat-card {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  margin-bottom: 1rem;
+}
+
+.notification.achievement {
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+}
+
+.notification.crisis {
+  background: linear-gradient(45deg, #ff4444, #cc0000);
+}
+
+.notification.opportunity {
+  background: linear-gradient(45deg, #00c851, #007e33);
+}
+
+.footer {
+  background-color: #1f2937; /* Tailwind's gray-800 */
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer .text-sm {
+  font-size: 0.875rem;
+}
+
+.footer .text-red-500 {
+  color: #ef4444; /* Tailwind's red-500 */
+}
+
+.footer .font-mono {
+  font-family: monospace;
+}
