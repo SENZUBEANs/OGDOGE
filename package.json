@@ -1,6 +1,7 @@
 {
   "name": "re-app",
   "version": "1.0.0",
+  "homepage": "https://senzubeans.github.io/ogdoge/"
   "description": "",
   "keywords": [],
   "main": "src/index.tsx",
