@@ -1252,6 +1252,123 @@ operation_clean_sweep: {
   ]
 },
 
+contact_developers: {
+  text: "You track down the original developers of 'Operation Clean Sweep'. They're an eccentric group of programmers known as the 'Codebreakers,' now living in a secluded compound powered entirely by solar panels and cryptocurrency mining rigs. They seem hesitant to discuss their creation.",
+  choices: [
+    {
+      text: "Convince them to help you fix the program 🛠️",
+      next: "developers_fix",
+      fx: { innovation: 20, influence: 15 },
+    },
+    {
+      text: "Pressure them into revealing hidden features 💻",
+      next: "developers_reveal",
+      fx: { influence: 20, efficiency: 15 },
+    },
+    {
+      text: "Recruit them to join D.O.G.E. 🐕",
+      next: "developers_recruit",
+      fx: { innovation: 25, memes: 10 },
+    }
+  ]
+},
+
+developers_fix: {
+  text: "The developers reluctantly agree to fix the flaws in 'Operation Clean Sweep'. After days of coding and copious amounts of energy drinks, they patch the program to optimize government efficiency without wiping out human oversight.",
+  choices: [],
+  ending: "Code Repaired: 'Operation Clean Sweep' becomes a force for good, improving governance nationwide. [Achievement: Patch Perfect]"
+},
+
+developers_reveal: {
+  text: "Under pressure, the developers reveal hidden features of the program, including a 'self-destruct protocol' and a 'hyper-efficiency override'. You now have the ability to rewrite government systems on the fly.",
+  choices: [],
+  ending: "Hidden Mastery: You wield 'Operation Clean Sweep' like a scalpel, surgically removing inefficiencies. [Achievement: Hidden Features Unlocked]"
+},
+
+developers_recruit: {
+  text: "The developers join D.O.G.E., bringing their expertise and chaotic energy to the team. With their help, you create a suite of new tools to tackle government inefficiencies.",
+  choices: [],
+  ending: "Team Complete: The Codebreakers propel D.O.G.E. into a new era of innovation. [Achievement: Assembled the A-Team]"
+},
+
+analyze_clean_sweep: {
+  text: "You dive into the code of 'Operation Clean Sweep', uncovering bizarre comments left by its developers: 'TODO: Fix the government AI interface before release' and 'Do NOT touch the red button.' The program is riddled with vulnerabilities that could be exploited for good or ill.",
+  choices: [
+    {
+      text: "Exploit vulnerabilities to optimize systems ⚙️",
+      next: "clean_sweep_exploit",
+      fx: { efficiency: 30, innovation: 20 },
+    },
+    {
+      text: "Patch the vulnerabilities for safety 🔒",
+      next: "clean_sweep_patch",
+      fx: { innovation: 20, influence: 15 },
+    },
+    {
+      text: "Activate the red button for experimental results 🚨",
+      next: "clean_sweep_experiment",
+      fx: { memes: 20, efficiency: -10 },
+    }
+  ]
+},
+
+clean_sweep_exploit: {
+  text: "By exploiting the vulnerabilities, you force 'Operation Clean Sweep' to automatically optimize government operations. However, the program occasionally misinterprets tasks, like ordering 10,000 staplers for a single department.",
+  choices: [],
+  ending: "Exploit Expert: You harnessed the flaws in 'Operation Clean Sweep' to drive unprecedented efficiency. [Achievement: Grey Hat Hero]"
+},
+
+clean_sweep_patch: {
+  text: "You carefully patch the vulnerabilities, ensuring 'Operation Clean Sweep' can run without risk of catastrophic errors. The system becomes a safe and reliable tool for governance.",
+  choices: [],
+  ending: "Secure Systems: 'Operation Clean Sweep' becomes the backbone of modern government efficiency. [Achievement: Ironclad Optimization]"
+},
+
+clean_sweep_experiment: {
+  text: "You press the red button. The program initiates a bizarre protocol that replaces all government officials with holographic Shiba Inus. The public is confused but oddly supportive.",
+  choices: [],
+  ending: "Shiba Government: The Shiba Inu holograms bring surprising charm and efficiency to governance. [Achievement: All Bark, No Bureaucracy]"
+},
+
+karen_merge_sweep: {
+  text: "You merge 'Operation Clean Sweep' with KAREN's systems. The result is K.L.E.A.N (KAREN's Logical Efficiency And Neatness) protocol. Office plants rearrange themselves alphabetically, coffee machines begin dispensing motivational quotes, and paperwork completes itself.",
+  choices: [
+    {
+      text: "Enhance K.L.E.A.N. with advanced AI modules 🤖",
+      next: "klean_advanced",
+      fx: { innovation: 30, efficiency: 20 },
+    },
+    {
+      text: "Introduce K.L.E.A.N. to global governments 🌍",
+      next: "klean_global",
+      fx: { influence: 25, innovation: 20 },
+    },
+    {
+      text: "Add meme-generation capabilities to K.L.E.A.N. 🎭",
+      next: "klean_memes",
+      fx: { memes: 30, influence: 15 },
+    }
+  ]
+},
+
+klean_advanced: {
+  text: "You enhance K.L.E.A.N. with cutting-edge AI modules, allowing it to predict inefficiencies before they occur. However, it starts demanding weekly performance reviews for humans.",
+  choices: [],
+  ending: "AI Overlord: K.L.E.A.N. becomes the ultimate tool for predictive governance. [Achievement: Foresight Engine]"
+},
+
+klean_global: {
+  text: "K.L.E.A.N. is adopted by global governments, standardizing efficiency worldwide. Citizens marvel at how fast government services are, but some miss the human touch.",
+  choices: [],
+  ending: "Global Efficiency: K.L.E.A.N. becomes a symbol of international cooperation and progress. [Achievement: World Administrator]"
+},
+
+klean_memes: {
+  text: "You integrate meme-generation capabilities into K.L.E.A.N., turning it into a viral sensation. Citizens engage with governance like never before, thanks to K.L.E.A.N.'s humorous take on policy updates.",
+  choices: [],
+  ending: "Meme Machine: K.L.E.A.N. uses memes to make bureaucracy fun and relatable. [Achievement: Viral Efficiency]"
+},
+
 cat_conspiracy: {
   text: "The folder reveals the truth: all government cats are actually advanced AI observers! That grumpy cat in the tax office? Security AI. The stray behind the Pentagon? Military intelligence. The folder contains profiles of Agent Whiskers, Colonel Mittens, and the mysterious Director Fluffles.",
   choices: [
