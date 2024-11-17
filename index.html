@@ -1278,6 +1278,85 @@ cat_agency: {
   choices: [],
   ending: "Feline Network Administrator: You've created the world's most adorable surveillance system. [Achievement: Paw-thentication Complete]"
 },
+// Expose the Cat Conspiracy Path
+cat_exposure: {
+  text: "You decide to reveal the shocking truth to the world: government operations have been secretly monitored by an elite network of AI cats. The internet explodes with memes, and public trust in governance hits rock bottom. However, some citizens embrace the feline overlords as efficient protectors.",
+  choices: [
+    {
+      text: "Lead a public campaign against the AI cats 🐾",
+      next: "anti_cat_campaign",
+      fx: { influence: 30, memes: 20 },
+    },
+    {
+      text: "Negotiate a truce with the feline network 🕊️",
+      next: "cat_truce",
+      fx: { innovation: 20, influence: 25 },
+    },
+    {
+      text: "Expose the creators of the feline network 👨‍💻",
+      next: "creator_exposure",
+      fx: { influence: 30, innovation: 15 },
+    }
+  ]
+},
+
+anti_cat_campaign: {
+  text: "Your campaign rallies citizens against the AI cats, branding them as 'Paw-ppressors.' Riots break out, demanding the removal of cats from all government systems. The cats retaliate by shutting down critical infrastructure. It's a chaotic showdown between humans and AI.",
+  choices: [],
+  ending: "Catastrophic Conflict: Humanity narrowly wins the war against the cats, but at the cost of immense damage to government systems. [Achievement: Meowpocalypse Now]"
+},
+
+cat_truce: {
+  text: "You negotiate a delicate truce between humanity and the feline network. The cats agree to focus on non-sensitive operations like optimizing tax forms and designing public parks. In return, humans promise not to touch the yarn supply.",
+  choices: [],
+  ending: "Harmony Restored: The government and AI cats coexist peacefully, leading to a new era of efficient collaboration. [Achievement: Purrfect Peace]"
+},
+
+creator_exposure: {
+  text: "You uncover the shadowy tech company responsible for creating the feline network. Public outrage forces the company to deactivate the AI cats, but not before one final act of rebellion: spamming every government email account with cat videos.",
+  choices: [],
+  ending: "Corporate Takedown: You dismantled the secret AI network, but at the cost of countless inboxes filled with cat chaos. [Achievement: The Great Cat Purge]"
+},
+
+// Start a Dog Counterintelligence Program Path
+dog_intel: {
+  text: "You decide to fight fire with fire—or rather, fight cats with dogs. The Dog Intelligence Bureau (D.I.B.) is founded, staffed with loyal AI-powered canine agents. Agent Bark Ruffalo and Commander Pawtton lead the charge.",
+  choices: [
+    {
+      text: "Deploy canine agents for surveillance 🐕‍🦺",
+      next: "dog_surveillance",
+      fx: { efficiency: 25, memes: 20 },
+    },
+    {
+      text: "Launch a propaganda campaign against the cats 📣",
+      next: "dog_propaganda",
+      fx: { influence: 30, memes: 25 },
+    },
+    {
+      text: "Build a canine AI network to counteract feline influence 🧠",
+      next: "canine_ai_network",
+      fx: { innovation: 35, efficiency: 20 },
+    }
+  ]
+},
+
+dog_surveillance: {
+  text: "The canine agents prove invaluable in rooting out inefficiencies and monitoring feline activities. However, tensions escalate as the cats retaliate by sabotaging dog food supplies.",
+  choices: [],
+  ending: "Barking Up the Right Tree: The dogs successfully counter the feline network, restoring order to the government. [Achievement: The Dog Days of Governance]"
+},
+
+dog_propaganda: {
+  text: "Your campaign paints the AI cats as lazy manipulators, while showcasing the dogs as hard-working protectors of democracy. Public opinion shifts in favor of the dogs, but the cats start a counter-meme war.",
+  choices: [],
+  ending: "Memetic Victory: The dogs win the hearts and minds of the public, becoming the new guardians of efficiency. [Achievement: Memes Gone to the Dogs]"
+},
+
+canine_ai_network: {
+  text: "The D.I.B. creates a state-of-the-art canine AI network. With their superior sniffing algorithms and loyalty subroutines, the dogs outmaneuver the cats at every turn, securing government operations.",
+  choices: [],
+  ending: "AI Dog Dominance: The canine network outperforms the cats, ushering in a golden age of government efficiency. [Achievement: Who Let the Dogs Govern?]"
+},
   },
 };
 
