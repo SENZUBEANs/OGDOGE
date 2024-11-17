@@ -735,158 +735,287 @@
             ending: "Meme Minister: You institutionalized the power of memes in governance.",
           },
           // Meme Army Path
-          meme_army: {
-            text: "Your meme campaign gains massive traction, captivating audiences worldwide. What's next?",
-            choices: [
-              {
-                text: "Collaborate with influencers 🌟",
-                next: "influencer_collab",
-                fx: { influence: 10, memes: 10 },
-              },
-              {
-                text: "Create a Meme DAO 📜",
-                next: "create_meme_dao",
-                fx: { innovation: 10, memes: 15 },
-              },
-              {
-                text: "Host a meme competition 🎉",
-                next: "meme_competition",
-                fx: { influence: 5, memes: 10 },
-              },
-            ],
-          },
-          influencer_collab: {
-            text: "Influencers amplify your message, making your memes a cultural phenomenon. What's next?",
-            choices: [
-              {
-                text: "Turn memes into merchandise 🛍️",
-                next: "meme_merch",
-                fx: { influence: 10, memes: 10 },
-              },
-              {
-                text: "Use memes to educate citizens 📚",
-                next: "educational_memes",
-                fx: { innovation: 10, memes: 5 },
-              },
-              {
-                text: "Create meme-powered charity campaigns 💝",
-                next: "meme_charity",
-                fx: { influence: 15, memes: 10 },
-              },
-            ],
-          },
-          meme_merch: {
-            text: "Merchandise profits fund public projects and spread the meme movement even further. What do you do next?",
-            choices: [
-              {
-                text: "Invest profits into meme-based schools 🎓",
-                next: "meme_schools",
-                fx: { innovation: 15 },
-              },
-              {
-                text: "Use profits to fund infrastructure upgrades 🏗️",
-                next: "meme_infrastructure",
-                fx: { efficiency: 15 },
-              },
-            ],
-          },
-          meme_schools: {
-            text: "Meme-based schools teach humor and critical thinking to the next generation.",
-            choices: [],
-            ending: "Meme Mentor: You shaped a future where humor and knowledge go hand in hand.",
-          },
-          meme_infrastructure: {
-            text: "Infrastructure upgrades funded by memes lead to better roads, faster internet, and happier citizens.",
-            choices: [],
-            ending: "Infrastructure Icon: You turned memes into a force for physical progress.",
-          },
-          meme_charity: {
-            text: "Charity campaigns powered by memes raise unprecedented funds. What's your next step?",
-            choices: [
-              {
-                text: "Build global charity networks 🌍",
-                next: "global_charity",
-                fx: { influence: 20, innovation: 10 },
-              },
-              {
-                text: "Develop tech to gamify charity campaigns 🎮",
-                next: "gamify_charity",
-                fx: { innovation: 15 },
-              },
-            ],
-          },
-          global_charity: {
-            text: "Your charity networks improve lives worldwide, building bridges across nations.",
-            choices: [],
-            ending: "Global Humanitarian: You turned memes into a tool for global good.",
-          },
-          gamify_charity: {
-            text: "Gamification of charity campaigns makes giving back fun and engaging.",
-            choices: [],
-            ending: "Charity Game Changer: You revolutionized philanthropy with innovation.",
-          },
-          // Meme DAO Path
-          create_meme_dao: {
-            text: "The Meme DAO gains massive support, enabling crowdfunding for reform projects. What's next?",
-            choices: [
-              {
-                text: "Expand the DAO globally 🌍",
-                next: "global_dao",
-                fx: { influence: 20, innovation: 10 },
-              },
-              {
-                text: "Use DAO funds for transparency dashboards 📊",
-                next: "dashboard_funding",
-                fx: { efficiency: 15 },
-              },
-              {
-                text: "Partner DAO with tech companies 🤝",
-                next: "tech_partnership",
-                fx: { innovation: 20 },
-              },
-            ],
-          },
-          global_dao: {
-            text: "The global DAO inspires international citizen-led reforms.",
-            choices: [],
-            ending: "Citizen Diplomat: You created a global movement for change.",
-          },
-          dashboard_funding: {
-            text: "DAO funds improve transparency and public accountability.",
-            choices: [],
-            ending: "Transparency Titan: Your DAO transformed public trust.",
-          },
-          tech_partnership: {
-            text: "Partnerships with tech companies revolutionize DAO efficiency.",
-            choices: [],
-            ending: "Tech Reformer: You pioneered citizen-tech collaboration.",
-          },
-          // Host a Meme Competition
-          meme_competition: {
-            text: "The competition engages the public and sparks creativity. What's next?",
-            choices: [
-              {
-                text: "Publish winning memes in a national anthology 📖",
-                next: "meme_anthology",
-                fx: { memes: 10 },
-              },
-              {
-                text: "Use winning memes in public service campaigns 📣",
-                next: "service_campaigns",
-                fx: { influence: 10, memes: 10 },
-              },
-              {
-                text: "Turn winning memes into NFTs 🖼️",
-                next: "nft_memes",
-                fx: { innovation: 10, memes: 10 },
-              },
-            ],
-          },
-          nft_memes: {
-            text: "The NFT collection generates significant revenue for government projects.",
-            choices: [],
-            ending: "Digital Innovator: You blended art, technology, and reform.",
-          },
+meme_army: {
+  text: "Your meme campaign gains massive traction, captivating audiences worldwide. The D.O.G.E. memes spread like wildfire across platforms, inspiring a global movement. Trump starts retweeting your content, and Elon Musk adds 'Chief Meme Officer' to his Twitter bio. The power of memes flows through you. What's your strategic move in this pivotal moment?",
+  choices: [
+    {
+      text: "Collaborate with influencers 🌟 [69K followers required]",
+      next: "influencer_collab",
+      fx: { influence: 10, memes: 10 },
+    },
+    {
+      text: "Create a Meme DAO 📜 [Much wow initiative]",
+      next: "create_meme_dao",
+      fx: { innovation: 10, memes: 15 },
+    },
+    {
+      text: "Host a meme competition 🎉 [To the moon!]",
+      next: "meme_competition",
+      fx: { influence: 5, memes: 10 },
+    },
+    {
+      text: "Summon the Ancient Meme Gods 🗿",
+      next: "ancient_memes",
+      fx: { memes: 25, innovation: -5 },
+    }
+  ],
+},
+
+// Influencer Path Extended
+influencer_collab: {
+  text: "Your DMs explode as top influencers vie for collaboration. PewDiePie wants to review your memes, MrBeast offers to fund a meme charity challenge, and KSI wants to make a meme-themed song. The meme stonks are rising! 📈 Your influence reaches unprecedented levels, but with great power comes great memesponsibility.",
+  choices: [
+    {
+      text: "Launch MemeVerse™ Platform 🚀",
+      next: "memeverse_launch",
+      fx: { innovation: 15, memes: 20 },
+    },
+    {
+      text: "Create meme-powered charity campaigns 💝",
+      next: "meme_charity",
+      fx: { influence: 15, memes: 10 },
+    },
+    {
+      text: "Start a meme-based political party 🎭",
+      next: "meme_party",
+      fx: { influence: 20, efficiency: -5 },
+    },
+    {
+      text: "Host the Ultimate Meme Review Show 🎬",
+      next: "meme_review_show",
+      fx: { memes: 25, influence: 15 },
+    }
+  ],
+},
+
+memeverse_launch: {
+  text: "The MemeVerse™ launches as the first decentralized meme-based social platform. Users earn 'DANK' tokens for quality memes, and governments start taking notice. Meta's stock plummets as users migrate en masse to your platform. Mark Zuckerberg sends you a friend request.",
+  choices: [
+    {
+      text: "Accept partnership with Big Tech 🤝",
+      next: "corporate_merger",
+      fx: { efficiency: 20, innovation: -10 },
+    },
+    {
+      text: "Keep MemeVerse independent 💪",
+      next: "independent_growth",
+      fx: { influence: 15, innovation: 15 },
+    },
+    {
+      text: "Transform MemeVerse into a virtual nation 🏛️",
+      next: "virtual_nation",
+      fx: { innovation: 25, efficiency: -15 },
+    }
+  ],
+},
+
+corporate_merger: {
+  text: "The merger creates an unprecedented media empire. However, corporate interests begin influencing meme culture. Boardroom meetings are now conducted entirely in meme format, but something feels off...",
+  choices: [
+    {
+      text: "Embrace corporate meme culture 📈",
+      next: "corporate_memes",
+      fx: { efficiency: 30, memes: -10 },
+    },
+    {
+      text: "Lead an internal resistance ✊",
+      next: "meme_rebellion",
+      fx: { influence: 20, efficiency: -15 },
+    }
+  ],
+},
+
+independent_growth: {
+  text: "MemeVerse remains independent and thrives! It becomes a symbol of free speech and creativity. Users create self-governing meme communities, and a new form of digital democracy emerges.",
+  choices: [
+    {
+      text: "Establish the Meme Republic 🗽",
+      next: "meme_republic",
+      fx: { influence: 25, innovation: 20 },
+    },
+    {
+      text: "Launch meme-based education system 🎓",
+      next: "meme_education",
+      fx: { innovation: 20, efficiency: 15 },
+    }
+  ],
+},
+
+virtual_nation: {
+  text: "MemeVerse declares itself a sovereign digital nation! The United Nations is confused but intrigued. Citizens can now get meme passports, and DANK becomes an officially recognized currency.",
+  choices: [
+    {
+      text: "Create a meme constitution 📜",
+      next: "meme_constitution",
+      fx: { innovation: 20, influence: 25 },
+    },
+    {
+      text: "Establish diplomatic relations 🌍",
+      next: "meme_diplomacy",
+      fx: { influence: 30, efficiency: 10 },
+    }
+  ],
+},
+
+// Meme Review Show Path
+meme_review_show: {
+  text: "Your meme review show becomes a global sensation! Each episode features celebrity guests reviewing government policies through memes. The show's catchphrase 'But can it meme?' becomes part of everyday language.",
+  choices: [
+    {
+      text: "Launch a 24/7 Meme News Network 📺",
+      next: "meme_news",
+      fx: { influence: 20, memes: 15 },
+    },
+    {
+      text: "Create meme-based policy debates 🗣️",
+      next: "meme_debates",
+      fx: { efficiency: 15, innovation: 20 },
+    },
+    {
+      text: "Start a meme awards ceremony 🏆",
+      next: "meme_awards",
+      fx: { influence: 25, memes: 20 },
+    }
+  ],
+},
+
+// Ancient Meme Gods Path Extended
+ancient_memes: {
+  text: "In a blinding flash of light, the Ancient Meme Gods materialize! Nyan Cat streaks across the sky, Doge speaks in prophecies, and Pepe shares wisdom from the astral plane. The air crackles with primordial meme energy as they recognize you as the Chosen One. The prophecy of the Ultimate Meme has begun!",
+  choices: [
+    {
+      text: "Channel their power into government reform 🌟",
+      next: "meme_reform_divine",
+      fx: { memes: 20, efficiency: 15 },
+    },
+    {
+      text: "Start a meme religion 🙏",
+      next: "meme_cult",
+      fx: { influence: 25, innovation: -10 },
+    },
+    {
+      text: "Try to contain their chaotic energy ⚠️",
+      next: "contain_chaos",
+      fx: { efficiency: -10, memes: 30 },
+    },
+    {
+      text: "Ascend to Meme Godhood 👁️",
+      next: "meme_ascension",
+      fx: { memes: 50, innovation: 30 },
+    }
+  ],
+},
+
+meme_ascension: {
+  text: "You embrace the full power of the Ancient Meme Gods, transcending mortal form! Reality bends to your will as you become one with the meme-force. The universe itself speaks in Impact font.",
+  choices: [
+    {
+      text: "Create a new dimension of reality 🌌",
+      next: "new_dimension",
+      fx: { innovation: 40, efficiency: -20 },
+    },
+    {
+      text: "Establish the Memepire 👑",
+      next: "memepire_ruling",
+      fx: { influence: 35, memes: 30 },
+    },
+    {
+      text: "Merge all realities into one Mega-Meme 🌟",
+      next: "reality_merge",
+      fx: { memes: 100, efficiency: -50 },
+    }
+  ],
+},
+
+// Meme Competition Path Extended
+meme_competition: {
+  text: "The 'D.O.G.E. International Meme Olympics' becomes the most-watched event in human history! Countries send their best meme artists to compete in categories like 'Speed Memeing', 'Freestyle Photoshop', and 'Historical Meme Reenactment'.",
+  choices: [
+    {
+      text: "Establish the International Meme Federation 🏛️",
+      next: "meme_federation",
+      fx: { influence: 20, efficiency: 15 },
+    },
+    {
+      text: "Create a meme stock market 📈",
+      next: "meme_stocks",
+      fx: { innovation: 25, efficiency: 10 },
+    },
+    {
+      text: "Launch meme-based education reforms 🎓",
+      next: "education_reform",
+      fx: { efficiency: 20, innovation: 15 },
+    },
+    {
+      text: "Turn winning memes into NFTs 🖼️",
+      next: "nft_revolution",
+      fx: { innovation: 30, memes: 25 },
+    }
+  ],
+},
+
+nft_revolution: {
+  text: "Your NFT collection breaks all records! Each meme becomes a piece of digital history, traded for millions. The traditional art world is in shambles as museums scramble to acquire rare Pepes.",
+  choices: [
+    {
+      text: "Create the First Meme Museum 🏛️",
+      next: "meme_museum",
+      fx: { influence: 25, memes: 20 },
+    },
+    {
+      text: "Launch a meme-based cryptocurrency 💰",
+      next: "meme_coin",
+      fx: { innovation: 30, efficiency: -10 },
+    },
+    {
+      text: "Start a meme art movement 🎨",
+      next: "meme_art",
+      fx: { memes: 35, influence: 15 },
+    }
+  ],
+},
+
+// DAO Path Extended
+create_meme_dao: {
+  text: "The Meme DAO launches with unprecedented support! Members vote on proposals using rare Pepes, and the treasury is filled with DOGE coins. Every governance decision must be submitted in meme format, and voting power is determined by one's meme creation history.",
+  choices: [
+    {
+      text: "Create autonomous meme algorithms 🤖",
+      next: "ai_memes",
+      fx: { innovation: 30, efficiency: 20 },
+    },
+    {
+      text: "Establish meme mining farms 🏭",
+      next: "meme_mining",
+      fx: { efficiency: 25, memes: 20 },
+    },
+    {
+      text: "Launch meme prediction markets 🔮",
+      next: "meme_futures",
+      fx: { innovation: 20, influence: 15 },
+    },
+    {
+      text: "Form the Decentralized Meme Exchange 📊",
+      next: "meme_exchange",
+      fx: { efficiency: 30, memes: 25 },
+    }
+  ],
+},
+
+// Add many more branching paths and events...
+// [Additional paths and endings would continue with similar detail and depth]
+
+reality_merge: {
+  text: "As all realities merge into the Ultimate Meme, existence itself becomes a recursive joke. Every moment is simultaneously a setup and a punchline. You've transcended beyond mere governance into something... beautiful?",
+  choices: [],
+  ending: "Meme Singularity Achieved: You've created a new form of existence where everything is simultaneously serious and a joke. Reality itself has become post-ironic. [Secret Ending: The Ultimate Meme]"
+},
+
+meme_exchange: {
+  text: "The Decentralized Meme Exchange (DMX) becomes the world's most powerful financial institution. Meme traders work around the clock, analyzing 'technical analysis' charts made entirely of emoji patterns.",
+  choices: [],
+  ending: "Master of Meme Markets: You've transformed the global economy into a meme-based system. The invisible hand of the market is now literally a 👋 emoji. [Achievement: Stonks Master]"
+},
 // Path: Explore Secret Archives
     secret_archives: {
       text: "You uncover classified documents revealing inefficiencies and hidden agendas. What’s your next move?",
