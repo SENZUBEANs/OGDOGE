@@ -1225,6 +1225,59 @@ karen_metaverse: {
   choices: [],
   ending: "The Digital Pioneer: You brought governance into the virtual age. [Achievement: Meta-Governance]",
 },
+// Operation Clean Sweep Main Path
+operation_clean_sweep: {
+  text: "The mysterious USB drive contains plans for a radical government reset program. Looking closer, you notice it's shaped like a tiny vacuum cleaner and makes a faint humming sound. The file structure is unusual - folders are named 'definitely_not_skynet', 'totally_normal_plans', and 'cat_pictures_nothing_suspicious'. A sticky note attached reads 'In case of extreme inefficiency, break glass. PS: Try konami code.' [Try arrow key combinations or type 'sudo rm -rf government']",
+  choices: [
+    {
+      text: "Contact the original developers 👨‍💻",
+      next: "contact_developers",
+      fx: { innovation: 20, efficiency: 15 },
+    },
+    {
+      text: "Analyze the code for vulnerabilities 🔍",
+      next: "analyze_clean_sweep",
+      fx: { efficiency: 15, innovation: 10 },
+    },
+    {
+      text: "Merge it with KAREN's systems ⚡",
+      next: "karen_merge_sweep",
+      fx: { innovation: 25, efficiency: -10 },
+    },
+    {
+      text: "Open cat_pictures folder 🐱",
+      next: "cat_conspiracy",
+      fx: { memes: 20, innovation: 15 },
+    }
+  ]
+},
+
+cat_conspiracy: {
+  text: "The folder reveals the truth: all government cats are actually advanced AI observers! That grumpy cat in the tax office? Security AI. The stray behind the Pentagon? Military intelligence. The folder contains profiles of Agent Whiskers, Colonel Mittens, and the mysterious Director Fluffles.",
+  choices: [
+    {
+      text: "Join the Feline Intelligence Agency 🐱",
+      next: "cat_agency",
+      fx: { efficiency: 25, memes: 20 },
+    },
+    {
+      text: "Expose the cat conspiracy 🔍",
+      next: "cat_exposure",
+      fx: { influence: 30, memes: 25 },
+    },
+    {
+      text: "Start a dog counterintelligence program 🐕",
+      next: "dog_intel",
+      fx: { innovation: 35, efficiency: 15 },
+    }
+  ]
+},
+
+cat_agency: {
+  text: "Welcome to the F.I.A (Feline Intelligence Agency). Your code name is 'Paw-fficer'. Your first mission: infiltrate the notorious Yarn Cartel that's been tampering with government efficiency.",
+  choices: [],
+  ending: "Feline Network Administrator: You've created the world's most adorable surveillance system. [Achievement: Paw-thentication Complete]"
+},
   },
 };
 
