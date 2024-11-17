@@ -1,4 +1,4 @@
-/* Styles for the game */
+/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +14,7 @@ body {
   width: 100%;
 }
 
+/* Custom gradient background */
 .bg-gradient-custom {
   background: linear-gradient(
     180deg,
@@ -24,7 +25,7 @@ body {
   width: 100%;
 }
 
-/* Add explicit background colors to ensure visibility */
+/* Background colors */
 .bg-gray-900 {
   background-color: #111827;
 }
@@ -45,10 +46,12 @@ body {
   background-color: #22c55e;
 }
 
+/* Text colors */
 .text-white {
   color: white;
 }
 
+/* Component styles */
 .stat-card {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
@@ -60,6 +63,7 @@ body {
   align-items: center;
 }
 
+/* Notification styles */
 .notification {
   padding: 1rem;
   border-radius: 0.5rem;
@@ -79,6 +83,7 @@ body {
   background: linear-gradient(45deg, #00c851, #007e33);
 }
 
+/* Footer styles */
 .footer {
   background-color: #1f2937;
   color: white;
@@ -97,4 +102,54 @@ body {
 
 .footer .font-mono {
   font-family: monospace;
+}
+
+/* New animations and gradients */
+.title-gradient {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Image transitions */
+.image-transition {
+  transition: all 0.5s ease-in-out;
+}
+
+.image-transition.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-transition.loading {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Button hover effects */
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Backdrop blur effects */
+.backdrop-blur {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
