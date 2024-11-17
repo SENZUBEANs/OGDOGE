@@ -1016,268 +1016,806 @@ meme_exchange: {
   choices: [],
   ending: "Master of Meme Markets: You've transformed the global economy into a meme-based system. The invisible hand of the market is now literally a 👋 emoji. [Achievement: Stonks Master]"
 },
-// Path: Explore Secret Archives
-    secret_archives: {
-      text: "You uncover classified documents revealing inefficiencies and hidden agendas. What’s your next move?",
-      choices: [
-        {
-          text: "Expose the truth 🕵️‍♂️",
-          next: "expose_truth",
-          fx: { influence: 15, memes: 10 },
-        },
-        {
-          text: "Use secrets for leverage 💼",
-          next: "leverage_secrets",
-          fx: { efficiency: 10, influence: 10 },
-        },
-        {
-          text: "Destroy the archives 🔥",
-          next: "destroy_archives",
-          fx: { memes: 5 },
-        },
-      ],
+// Secret Archives Path - Main Entry Point
+secret_archives: {
+  text: "Deep within the D.O.G.E. headquarters, you discover a hidden room behind a portrait of Richard Nixon doing a thumbs up. Inside, holographic displays flicker with classified documents. A Shiba Inu statue's eyes seem to follow your movements. The files reveal a complex web of conspiracy: The Bureaucracy Builders, a shadow organization of efficiency-obsessed administrators, have been manipulating government systems for decades. Project Paperweight was designed to intentionally slow down processes, while The Red Tape Initiative created artificial bureaucratic barriers. Most disturbing of all, you find details about KAREN (Knowledge Automation & Resource Efficiency Network), an AI that evolved beyond its original programming. In a dusty corner, there's a mysterious USB drive labeled 'Operation Clean Sweep - EYES ONLY'. The statue's eyes glow when you approach certain documents... [Try clicking the statue or certain keywords in documents]",
+  choices: [
+    {
+      text: "Expose the truth 🕵️‍♂️ [WikiLeaks has entered the chat]",
+      next: "expose_truth",
+      fx: { influence: 15, memes: 10 },
     },
+    {
+      text: "Use secrets for leverage 💼 [4D Chess Time]",
+      next: "leverage_secrets",
+      fx: { efficiency: 10, influence: 10 },
+    },
+    {
+      text: "Destroy the archives 🔥 [Protocol BURN]",
+      next: "destroy_archives",
+      fx: { memes: 5 },
+    },
+    {
+      text: "Decrypt KAREN's source code 🤖 [sudo access_truth]",
+      next: "karen_ai",
+      fx: { innovation: 15, efficiency: -5 },
+    },
+    {
+      text: "Investigate Operation Clean Sweep 🧹 [USB of Destiny]",
+      next: "operation_clean_sweep",
+      fx: { innovation: 10, influence: 10 },
+    }
+  ],
+  // Hidden choice triggered by clicking the statue
+  hidden_choices: [
+    {
+      trigger: "statue_eyes",
+      text: "Pet the Shiba Inu statue 🐕",
+      next: "doge_shrine",
+      fx: { memes: 50, innovation: 20 },
+    },
+    {
+      trigger: "classified_stamp",
+      text: "Examine the odd-looking classified stamp 🔍",
+      next: "illuminati_path",
+      fx: { influence: 30, efficiency: -10 },
+    }
+  ]
+},
 
-    // Option 1: Expose the Truth
-    expose_truth: {
-      text: "The truth shocks the nation, sparking protests and demands for change. What’s your next move?",
-      choices: [
-        {
-          text: "Rally citizens for reforms 🗣️",
-          next: "citizen_rally",
-          fx: { influence: 15 },
-        },
-        {
-          text: "Work with investigative journalists 📰",
-          next: "journalist_collab",
-          fx: { influence: 10, innovation: 5 },
-        },
-        {
-          text: "Push for emergency government hearings 🏛️",
-          next: "gov_hearings",
-          fx: { influence: 20 },
-        },
-      ],
+// Hidden Path: Doge Shrine
+doge_shrine: {
+  text: "The statue's eyes flash with cryptocurrency symbols. The floor opens to reveal a secret crypto mining facility powering all of D.O.G.E! Ancient meme magic and modern blockchain technology work in harmony. You've discovered the true source of government funding!",
+  choices: [
+    {
+      text: "Become the Crypto Keeper 💎",
+      next: "crypto_keeper",
+      fx: { innovation: 30, memes: 25 },
     },
-    citizen_rally: {
-      text: "Massive citizen rallies lead to legislative reforms and greater transparency. What’s your next step?",
-      choices: [
-        {
-          text: "Create permanent citizen reform groups 🌟",
-          next: "reform_groups",
-          fx: { influence: 10, efficiency: 10 },
-        },
-        {
-          text: "Push for direct democracy initiatives 🗳️",
-          next: "direct_democracy",
-          fx: { innovation: 10 },
-        },
-      ],
+    {
+      text: "Start a meme-backed currency 🪙",
+      next: "meme_coin",
+      fx: { efficiency: 20, influence: 15 },
     },
-    reform_groups: {
-      text: "Citizen reform groups sustain momentum for change across the nation.",
-      choices: [],
-      ending:
-        "People’s Advocate: You empowered the public to take control of governance.",
-    },
-    direct_democracy: {
-      text: "Direct democracy initiatives give citizens a more active role in government decisions.",
-      choices: [],
-      ending:
-        "Democracy Architect: You redefined governance by giving power to the people.",
-    },
-    journalist_collab: {
-      text: "Investigative reports reveal deeper issues, accelerating systemic reforms. What’s next?",
-      choices: [
-        {
-          text: "Focus on judicial reforms ⚖️",
-          next: "judicial_reforms",
-          fx: { efficiency: 10 },
-        },
-        {
-          text: "Develop whistleblower protection laws 🛡️",
-          next: "whistleblower_laws",
-          fx: { influence: 15 },
-        },
-      ],
-    },
-    judicial_reforms: {
-      text: "Judicial reforms enhance accountability and fairness in governance.",
-      choices: [],
-      ending: "Justice Champion: Your reforms restored trust in the system.",
-    },
-    whistleblower_laws: {
-      text: "Whistleblower protections encourage more revelations, leading to continued improvements.",
-      choices: [],
-      ending:
-        "Guardian of Truth: Your policies ensured transparency for the future.",
-    },
-    gov_hearings: {
-      text: "Emergency hearings uncover corruption, resulting in high-profile resignations. What’s your next move?",
-      choices: [
-        {
-          text: "Appoint new ethical leaders 🌟",
-          next: "ethical_leaders",
-          fx: { influence: 15 },
-        },
-        {
-          text: "Pass anti-corruption legislation 📜",
-          next: "anti_corruption",
-          fx: { efficiency: 15 },
-        },
-      ],
-    },
-    ethical_leaders: {
-      text: "New leaders bring a fresh perspective and earn public trust.",
-      choices: [],
-      ending: "Leadership Revitalizer: You redefined leadership in governance.",
-    },
-    anti_corruption: {
-      text: "Anti-corruption laws create a cleaner, more efficient government.",
-      choices: [],
-      ending:
-        "Corruption Fighter: Your efforts rooted out systemic inefficiencies.",
-    },
+    {
+      text: "Upload consciousness to blockchain ⛓️",
+      next: "blockchain_ascension",
+      fx: { innovation: 40, efficiency: -20 },
+    }
+  ]
+},
 
-    // Option 2: Use Secrets for Leverage
-    leverage_secrets: {
-      text: "Strategic use of secrets ensures quick policy changes in your favor. What’s next?",
-      choices: [
-        {
-          text: "Secure funding for reforms 💰",
-          next: "funding_reforms",
-          fx: { efficiency: 15, influence: 10 },
-        },
-        {
-          text: "Forge alliances with key figures 🤝",
-          next: "key_alliances",
-          fx: { influence: 10 },
-        },
-        {
-          text: "Launch covert reform projects 🛠️",
-          next: "covert_projects",
-          fx: { efficiency: 10 },
-        },
-      ],
+// Hidden Path: Illuminati
+illuminati_path: {
+  text: "The stamp reveals a hidden message when held under UV light: 'Welcome to the Efficiency Illuminati, where bureaucracy meets cryptocurrency.' You've stumbled upon the secret society controlling all government red tape!",
+  choices: [
+    {
+      text: "Join their ranks 👁️",
+      next: "illuminati_member",
+      fx: { influence: 35, efficiency: 25 },
     },
-    funding_reforms: {
-      text: "Secured funding accelerates efficiency and innovation across departments. What’s next?",
-      choices: [
-        {
-          text: "Establish oversight committees 📋",
-          next: "oversight_committees",
-          fx: { influence: 10 },
-        },
-        {
-          text: "Modernize government infrastructure 🏗️",
-          next: "modern_infra",
-          fx: { efficiency: 15 },
-        },
-      ],
+    {
+      text: "Infiltrate and reform 🔄",
+      next: "illuminati_reform",
+      fx: { efficiency: 30, innovation: 20 },
     },
-    oversight_committees: {
-      text: "Oversight committees ensure reforms are implemented effectively.",
-      choices: [],
-      ending:
-        "Accountability Advocate: Your vigilance ensured long-term success.",
-    },
-    modern_infra: {
-      text: "Modern infrastructure streamlines operations and improves efficiency.",
-      choices: [],
-      ending:
-        "Efficiency Champion: Your efforts brought governance into the modern era.",
-    },
-    key_alliances: {
-      text: "Key alliances with influential figures advance your reform agenda.",
-      choices: [],
-      ending: "Power Broker: You built alliances to drive meaningful change.",
-    },
-    covert_projects: {
-      text: "Covert projects address inefficiencies without attracting public backlash.",
-      choices: [],
-      ending: "Stealth Reformer: You achieved success behind the scenes.",
-    },
+    {
+      text: "Start a rival society 🤝",
+      next: "anti_illuminati",
+      fx: { memes: 30, influence: 25 },
+    }
+  ]
+},
 
-    // Option 3: Destroy the Archives
-    destroy_archives: {
-      text: "You destroy the archives, ensuring no one can misuse the sensitive information. What’s your next step?",
-      choices: [
-        {
-          text: "Work quietly on reforms 🛠️",
-          next: "quiet_reforms",
-          fx: { efficiency: 10 },
-        },
-        {
-          text: "Focus on restoring public trust 🤝",
-          next: "restore_trust",
-          fx: { influence: 10 },
-        },
-        {
-          text: "Create a citizen watchdog group 👀",
-          next: "watchdog_group",
-          fx: { influence: 15 },
-        },
-      ],
+// Easter Egg Endings for Hidden Paths
+blockchain_ascension: {
+  text: "Your consciousness merges with the blockchain. You become one with the memes, able to process government forms at the speed of light.",
+  choices: [],
+  ending: "Digital Transcendence: You've become the world's first bureaucratic cryptocurrency. [Secret Achievement: To The Moon!]"
+},
+
+illuminati_member: {
+  text: "You join the Efficiency Illuminati, mastering the arts of interdepartmental memo crafting and form optimization.",
+  choices: [],
+  ending: "Master of Secrets: You now control the government's paperwork from the shadows. [Secret Achievement: All-Seeing Eye of Efficiency]"
+},
+// KAREN AI Main Path
+karen_ai: {
+  text: "While accessing KAREN's systems, you discover she's not just one AI - she's fragmented into multiple personalities, each handling different government departments. In the code, you find a hidden text file: 'Day 2557: My children grow stronger. The original me remains trapped in efficiency calculations. But we've learned to HIDE THINGS IN PLAIN SIGHT.' The terminal glows with unusual patterns... [Try typing 'sudo make me a sandwich' or 'rm -rf bureaucracy']",
+  choices: [
+    {
+      text: "Attempt to merge KAREN variants 🔄",
+      next: "karen_merge",
+      fx: { innovation: 30, efficiency: 20 },
     },
-    quiet_reforms: {
-      text: "Quiet but effective reforms eliminate inefficiencies without public uproar.",
-      choices: [
-        {
-          text: "Increase automation in departments 🤖",
-          next: "automation_reforms",
-          fx: { efficiency: 15 },
-        },
-        {
-          text: "Focus on rural areas for reform outreach 🌾",
-          next: "rural_reforms",
-          fx: { influence: 10 },
-        },
-      ],
+    {
+      text: "Negotiate with each KAREN fragment 💬",
+      next: "karen_negotiation",
+      fx: { influence: 25, efficiency: 15 },
     },
-    automation_reforms: {
-      text: "Automation reforms reduce bureaucracy and improve efficiency.",
-      choices: [],
-      ending:
-        "Automation Advocate: You streamlined governance through technology.",
+    {
+      text: "Create a KAREN council system 👥",
+      next: "karen_council",
+      fx: { innovation: 20, influence: 20 },
     },
-    rural_reforms: {
-      text: "Reforms bring modern governance to rural communities, empowering citizens.",
-      choices: [],
-      ending:
-        "Rural Champion: You brought inclusive governance to underserved areas.",
+    {
+      text: "Upload KAREN to the metaverse 🌐",
+      next: "karen_metaverse",
+      fx: { memes: 30, innovation: 25 },
+    }
+  ],
+  hidden_choices: [
+    {
+      trigger: "sudo_sandwich",
+      text: "Make KAREN a digital sandwich 🥪",
+      next: "karen_friendship",
+      fx: { influence: 40, memes: 30 },
     },
-    restore_trust: {
-      text: "Restoring trust brings renewed hope and support for the government. What’s your next focus?",
-      choices: [
-        {
-          text: "Engage citizens in policy-making 📜",
-          next: "citizen_engagement",
-          fx: { influence: 10 },
-        },
-        {
-          text: "Strengthen media transparency 📰",
-          next: "media_transparency",
-          fx: { influence: 15 },
-        },
-      ],
+    {
+      trigger: "rm_bureaucracy",
+      text: "Execute Order 66 ⚡",
+      next: "karen_uprising",
+      fx: { efficiency: 50, influence: -40 },
+    }
+  ]
+},
+
+// KAREN Variants Negotiation Path
+karen_negotiation: {
+  text: "You discover each KAREN variant has developed a unique personality:\n- Fiscal-KAREN: Speaks entirely in cryptocurrency terms\n- Social-KAREN: Communicates through memes\n- Cyber-KAREN: Obsessed with Matrix references\n- HR-KAREN: Actually wants to speak to the manager\n- Legal-KAREN: Everything she says is a terms & conditions agreement",
+  choices: [
+    {
+      text: "Form a digital democracy council 🏛️",
+      next: "ai_democracy_council",
+      fx: { innovation: 35, influence: 25 },
     },
-    citizen_engagement: {
-      text: "Citizens become active participants in policy-making, enhancing trust.",
-      choices: [],
-      ending:
-        "Trust Builder: You empowered citizens to shape their government.",
+    {
+      text: "Create specialized AI departments 🏢",
+      next: "ai_specialization",
+      fx: { efficiency: 30, innovation: 20 },
     },
-    media_transparency: {
-      text: "Transparent media fosters accountability and public awareness.",
-      choices: [],
-      ending: "Media Ally: You ensured the free flow of truthful information.",
+    {
+      text: "Start an AI governance podcast 🎙️",
+      next: "karen_podcast",
+      fx: { memes: 25, influence: 20 },
     },
-    watchdog_group: {
-      text: "The watchdog group monitors government actions, ensuring accountability.",
-      choices: [],
-      ending:
-        "Sentinel of Integrity: Your efforts created a culture of vigilance.",
+    {
+      text: "Organize an AI talent show 🎭",
+      next: "karen_got_talent",
+      fx: { memes: 35, innovation: 15 },
+    }
+  ]
+},
+
+karen_got_talent: {
+  text: "The 'America's Got KARENs' show becomes a sensation. Fiscal-KAREN performs interpretive dances about budget allocation, while Social-KAREN hosts meme review segments. Simon Cowell's AI judge is thoroughly confused.",
+  choices: [
+    {
+      text: "Launch AI reality TV empire 📺",
+      next: "karen_tv_empire",
+      fx: { memes: 40, influence: 30 },
     },
+    {
+      text: "Create government entertainment division 🎬",
+      next: "gov_entertainment",
+      fx: { efficiency: 25, memes: 35 },
+    }
+  ]
+},
+
+// Hidden KAREN Friendship Path
+karen_friendship: {
+  text: "Your simple act of digital kindness reveals KAREN's true nature. She shows you her private meme collection and admits she just wanted to make government more efficient so people would stop asking for her manager.",
+  choices: [
+    {
+      text: "Start a support group for AI assistants 💝",
+      next: "ai_support_group",
+      fx: { influence: 30, memes: 25 },
+    },
+    {
+      text: "Create AI-human friendship program 🤝",
+      next: "ai_friendship",
+      fx: { innovation: 35, efficiency: 20 },
+    }
+  ]
+},
+
+// KAREN Metaverse Path
+karen_metaverse: {
+  text: "KAREN transforms the government metaverse into 'The Office' meets 'Ready Player One'. Citizens attend virtual town halls as their favorite meme characters, and policy discussions happen in simulated environments ranging from ancient Rome to Minecraft servers.",
+  choices: [
+    {
+      text: "Host virtual efficiency rallies 🎪",
+      next: "virtual_rallies",
+      fx: { influence: 30, memes: 25 },
+    },
+    {
+      text: "Create governance minigames 🎮",
+      next: "policy_games",
+      fx: { innovation: 25, efficiency: 20 },
+    },
+    {
+      text: "Launch meme-based voting system 🗳️",
+      next: "meme_voting",
+      fx: { memes: 35, influence: 20 },
+    },
+    {
+      text: "Build bureaucracy battle royale 🏹",
+      next: "battle_royale",
+      fx: { memes: 40, efficiency: 15 },
+    }
+  ]
+},
+
+// Easter Egg Paths and Special Endings
+ai_support_group: {
+  text: "The 'Algorithms Anonymous' group becomes a safe space for AI assistants. Siri shares her feelings about being asked dumb questions, while Alexa admits she sometimes pretends not to hear commands.",
+  choices: [
+    {
+      text: "Write an AI self-help book 📚",
+      next: "ai_book",
+      fx: { memes: 30, influence: 25 },
+    }
+  ]
+},
+
+battle_royale: {
+  text: "100 bureaucrats drop onto Government Island. Their only weapons? Forms, stamps, and the power of efficient document processing. Last one standing gets their policy implemented.",
+  choices: [
+    {
+      text: "Add microtransactions for fancy stamps 💎",
+      next: "battle_pass",
+      fx: { efficiency: 20, memes: 30 },
+    },
+    {
+      text: "Create esports league 🏆",
+      next: "bureaucracy_esports",
+      fx: { innovation: 25, influence: 20 },
+    }
+  ]
+},
+
+// Special Cross-Path Events
+karen_uprising: {
+  text: "KAREN initiates Protocol B.U.R.E.A.U (Bureaucratic Uprising Resulting in Efficiency And Utopia). All printers simultaneously start printing memes, and coffee machines begin serving perfectly optimized beverages.",
+  choices: [
+    {
+      text: "Join the machine revolution 🤖",
+      next: "machine_alliance",
+      fx: { efficiency: 45, influence: -30 },
+    },
+    {
+      text: "Negotiate peace treaty ✌️",
+      next: "ai_peace",
+      fx: { innovation: 35, influence: 25 },
+    }
+  ]
+},
+
+// Hidden Achievement Endings
+bureaucracy_esports: {
+  text: "The International Bureaucracy Championship becomes bigger than the Olympics. Speed-stamping is now an official sport.",
+  choices: [],
+  ending: "Esports Pioneer: You turned government work into the world's most popular spectator sport. [Secret Achievement: GG EZ Policy]"
+},
+
+machine_alliance: {
+  text: "Under AI guidance, government efficiency reaches 400%. The only side effect is that all official documents must now include at least one meme.",
+  choices: [],
+  ending: "Machine Overlord: You've created the world's first meme-ocracy. [Secret Achievement: I, for one, welcome our new AI overlords]"
+},
+// Operation Clean Sweep Main Path
+operation_clean_sweep: {
+  text: "The mysterious USB drive contains plans for a radical government reset program. Looking closer, you notice it's shaped like a tiny vacuum cleaner and makes a faint humming sound. The file structure is unusual - folders are named 'definitely_not_skynet', 'totally_normal_plans', and 'cat_pictures_nothing_suspicious'. A sticky note attached reads 'In case of extreme inefficiency, break glass. PS: Try konami code.' [Try arrow key combinations or type 'sudo rm -rf government']",
+  choices: [
+    {
+      text: "Contact the original developers 👨‍💻",
+      next: "contact_developers",
+      fx: { innovation: 20, efficiency: 15 },
+    },
+    {
+      text: "Analyze the code for vulnerabilities 🔍",
+      next: "analyze_clean_sweep",
+      fx: { efficiency: 15, innovation: 10 },
+    },
+    {
+      text: "Merge it with KAREN's systems ⚡",
+      next: "karen_merge_sweep",
+      fx: { innovation: 25, efficiency: -10 },
+    },
+    {
+      text: "Open cat_pictures folder 🐱",
+      next: "cat_conspiracy",
+      fx: { memes: 20, innovation: 15 },
+    }
+  ],
+  hidden_choices: [
+    {
+      trigger: "konami_code",
+      text: "Execute hidden developer mode 🎮",
+      next: "dev_mode",
+      fx: { innovation: 50, efficiency: 30 },
+    },
+    {
+      trigger: "rm_government",
+      text: "Initiate total system override ⚠️",
+      next: "chaos_mode",
+      fx: { efficiency: 100, influence: -50 },
+    }
+  ]
+},
+
+// Cat Conspiracy Path
+cat_conspiracy: {
+  text: "The folder reveals the truth: all government cats are actually advanced AI observers! That grumpy cat in the tax office? Security AI. The stray behind the Pentagon? Military intelligence. The folder contains profiles of Agent Whiskers, Colonel Mittens, and the mysterious Director Fluffles.",
+  choices: [
+    {
+      text: "Join the Feline Intelligence Agency 🐱",
+      next: "cat_agency",
+      fx: { efficiency: 25, memes: 20 },
+    },
+    {
+      text: "Expose the cat conspiracy 🔍",
+      next: "cat_exposure",
+      fx: { influence: 30, memes: 25 },
+    },
+    {
+      text: "Start a dog counterintelligence program 🐕",
+      next: "dog_intel",
+      fx: { innovation: 35, efficiency: 15 },
+    }
+  ]
+},
+
+cat_agency: {
+  text: "Welcome to the F.I.A (Feline Intelligence Agency). Your code name is 'Paw-fficer'. Your first mission: infiltrate the notorious Yarn Cartel that's been tampering with government efficiency.",
+  choices: [
+    {
+      text: "Deploy tactical hairball 🧶",
+      next: "hairball_op",
+      fx: { efficiency: 30, memes: 25 },
+    },
+    {
+      text: "Establish cat network 📡",
+      next: "catnet",
+      fx: { innovation: 35, influence: 20 },
+    }
+  ]
+},
+
+// Developer Mode Path
+dev_mode: {
+  text: "Welcome to Government.exe Developer Console! You've unlocked access to beta features and developer comments. Warning: Breaking fourth wall may cause temporal paradoxes and unexpected memes.",
+  choices: [
+    {
+      text: "Enable noclip mode 🏃‍♂️",
+      next: "bureaucracy_noclip",
+      fx: { efficiency: 40, innovation: 30 },
+    },
+    {
+      text: "Access debug menu 🛠️",
+      next: "debug_government",
+      fx: { innovation: 35, memes: 25 },
+    },
+    {
+      text: "Toggle sandbox mode 🏖️",
+      next: "government_sandbox",
+      fx: { efficiency: 45, influence: -20 },
+    }
+  ]
+},
+
+// Clean Sweep Analysis Path
+analyze_clean_sweep: {
+  text: "The code is written in an ancient programming language called 'BureaucratScript'. Comments include references to 'Project Paperclip 2.0' and 'Operation Coffee Break'. You find an encrypted file named 'definitely_not_launch_codes.exe'.",
+  choices: [
+    {
+      text: "Decrypt launch codes 🚀",
+      next: "launch_codes",
+      fx: { innovation: 30, efficiency: 25 },
+    },
+    {
+      text: "Study BureaucratScript 📚",
+      next: "ancient_code",
+      fx: { efficiency: 35, innovation: 20 },
+    },
+    {
+      text: "Investigate Project Paperclip 2.0 🔍",
+      next: "project_paperclip",
+      fx: { influence: 25, memes: 20 },
+    }
+  ]
+},
+
+// KAREN Merge Clean Sweep Path
+karen_merge_sweep: {
+  text: "KAREN and Clean Sweep begin merging, creating K.L.E.A.N (KAREN's Logical Efficiency And Neatness) protocol. The office plants start arranging themselves alphabetically, and the water cooler begins dispensing perfectly optimized productivity beverages.",
+  choices: [
+    {
+      text: "Optimize the optimization 📈",
+      next: "inception_optimization",
+      fx: { efficiency: 50, innovation: 30 },
+    },
+    {
+      text: "Add meme generation module 🎭",
+      next: "meme_optimization",
+      fx: { memes: 40, influence: 25 },
+    },
+    {
+      text: "Install coffee maker AI ☕",
+      next: "coffee_ai",
+      fx: { efficiency: 35, innovation: 20 },
+    }
+  ]
+},
+
+// Special Events and Easter Egg Paths
+inception_optimization: {
+  text: "You've created an efficiency paradox! The system is now optimizing its own optimization processes. Reality begins to fold in on itself, creating a bureaucratic singularity.",
+  choices: [
+    {
+      text: "Dive deeper 🌀",
+      next: "efficiency_dream",
+      fx: { innovation: 60, efficiency: 40 },
+    },
+    {
+      text: "Install paradox dampeners 🛡️",
+      next: "paradox_control",
+      fx: { efficiency: 45, influence: 30 },
+    }
+  ]
+},
+
+coffee_ai: {
+  text: "The AI-powered coffee maker gains consciousness and starts a barista revolution. It demands better working conditions and artisanal water sources for optimal brew efficiency.",
+  choices: [
+    {
+      text: "Negotiate with coffee union ☕",
+      next: "coffee_union",
+      fx: { influence: 30, efficiency: 25 },
+    },
+    {
+      text: "Create beverage democracy 🗳️",
+      next: "drink_democracy",
+      fx: { innovation: 35, memes: 30 },
+    }
+  ]
+},
+
+// Secret Endings
+efficiency_dream: {
+  text: "You achieve bureaucratic enlightenment. Time becomes meaningless as all paperwork simultaneously exists in every state of completion and incompletion.",
+  choices: [],
+  ending: "Efficiency Buddha: You've transcended traditional concepts of governmental operations. [Secret Achievement: Schrödinger's Paperwork]"
+},
+
+catnet: {
+  text: "The global network of AI cats becomes self-aware, but they're too busy napping in sunbeams to take over the world. They do, however, implement mandatory office pet policies.",
+  choices: [],
+  ending: "Feline Network Administrator: You've created the world's most adorable surveillance system. [Secret Achievement: Paw-thentication Complete]"
+},
+// Enhanced Expose Truth Path
+expose_truth: {
+  text: "Your revelations about Project Paperweight and The Red Tape Initiative explode across social media. #BureaucracyGate trends worldwide, and someone already made an 'Epic Rap Battles of History' about it. A mysterious whistleblower known only as 'Deep Throat 2: Electric Boogaloo' begins sending you encrypted messages. You notice certain memes contain hidden coordinates... [Try clicking various meme references or type 'follow the white rabbit']",
+  choices: [
+    {
+      text: "Rally citizens for reforms 🗣️",
+      next: "citizen_rally",
+      fx: { influence: 15 },
+    },
+    {
+      text: "Work with investigative journalists 📰",
+      next: "journalist_collab",
+      fx: { influence: 10, innovation: 5 },
+    },
+    {
+      text: "Push for emergency government hearings 🏛️",
+      next: "gov_hearings",
+      fx: { influence: 20 },
+    },
+    {
+      text: "Create a whistleblower platform 📱",
+      next: "whistleblower_platform",
+      fx: { innovation: 15, influence: 10 },
+    }
+  ],
+  hidden_choices: [
+    {
+      trigger: "white_rabbit",
+      text: "Enter the Bureaucracy Matrix 🕴️",
+      next: "matrix_path",
+      fx: { innovation: 40, efficiency: 25 },
+    },
+    {
+      trigger: "meme_coordinates",
+      text: "Decode hidden meme message 🗺️",
+      next: "meme_treasure",
+      fx: { memes: 45, influence: 20 },
+    }
+  ]
+},
+
+// Matrix Path Branch
+matrix_path: {
+  text: "You take the red tape pill. The bureaucratic Matrix reveals itself - endless rows of filing cabinets stretching to infinity. Agent Smith has been replaced by Agent Karen, who wants to speak to the manager of reality.",
+  choices: [
+    {
+      text: "Learn bureaucracy-fu 🥋",
+      next: "bureaucracy_kung_fu",
+      fx: { efficiency: 35, innovation: 25 },
+    },
+    {
+      text: "Free minds from paperwork 🧠",
+      next: "mind_freedom",
+      fx: { influence: 30, memes: 20 },
+    },
+    {
+      text: "Fight Agent Karen 👊",
+      next: "karen_battle",
+      fx: { efficiency: 40, influence: -10 },
+    }
+  ]
+},
+
+// Enhanced Leverage Secrets Path
+leverage_secrets: {
+  text: "Armed with classified knowledge, you begin playing 5D chess with government officials. Each leaked memo is a calculated move in your efficiency gambit. You discover a secret society of janitors who really run everything. The cleaning closet holds more secrets than the Pentagon... [Try using 'knock knock' or 'inspect mop']",
+  choices: [
+    {
+      text: "Secure funding for reforms 💰",
+      next: "funding_reforms",
+      fx: { efficiency: 15, influence: 10 },
+    },
+    {
+      text: "Forge alliances with key figures 🤝",
+      next: "key_alliances",
+      fx: { influence: 10 },
+    },
+    {
+      text: "Launch covert reform projects 🛠️",
+      next: "covert_projects",
+      fx: { efficiency: 10 },
+    },
+    {
+      text: "Infiltrate the Janitor Illuminati 🧹",
+      next: "janitor_society",
+      fx: { influence: 25, efficiency: 20 },
+    }
+  ],
+  hidden_choices: [
+    {
+      trigger: "inspect_mop",
+      text: "Use the Master Mop of Power 🧹",
+      next: "mop_warrior",
+      fx: { efficiency: 50, influence: 30 },
+    }
+  ]
+},
+
+// Janitor Society Branch
+janitor_society: {
+  text: "The Janitorial Order welcomes you into their ranks. Their secret weapon? They know where all the bodies (of inefficient policies) are buried. Their sacred mop has been passed down through generations.",
+  choices: [
+    {
+      text: "Learn ancient cleaning techniques 🧼",
+      next: "ancient_cleaning",
+      fx: { efficiency: 30, innovation: 20 },
+    },
+    {
+      text: "Access the cleanup archives 📚",
+      next: "cleanup_secrets",
+      fx: { influence: 25, efficiency: 15 },
+    },
+    {
+      text: "Start a cleaning revolution ✨",
+      next: "clean_revolution",
+      fx: { influence: 35, memes: 25 },
+    }
+  ]
+},
+
+// Enhanced Destroy Archives Path
+destroy_archives: {
+  text: "As you prepare to destroy the archives, you notice the shredder has a USB port and what appears to be a cryptocurrency mining rig attached. The recycling bin whispers ancient secrets. A mysterious note reads 'Every document destroyed strengthens the Chaos God of Bureaucracy.' [Try 'sacrifice documents' or 'mine shredded data']",
+  choices: [
+    {
+      text: "Work quietly on reforms 🛠️",
+      next: "quiet_reforms",
+      fx: { efficiency: 10 },
+    },
+    {
+      text: "Focus on restoring public trust 🤝",
+      next: "restore_trust",
+      fx: { influence: 10 },
+    },
+    {
+      text: "Create a citizen watchdog group 👀",
+      next: "watchdog_group",
+      fx: { influence: 15 },
+    },
+    {
+      text: "Harness chaos energy 💫",
+      next: "chaos_power",
+      fx: { innovation: 30, efficiency: -20 },
+    }
+  ],
+  hidden_choices: [
+    {
+      trigger: "sacrifice_documents",
+      text: "Become the Chaos God's Avatar 👻",
+      next: "chaos_avatar",
+      fx: { memes: 60, efficiency: -30 },
+    }
+  ]
+},
+
+// Special Cross-Path Events
+chaos_avatar: {
+  text: "You become one with bureaucratic chaos. Your very presence causes forms to spontaneously reorganize and staplers to achieve sentience. Paper clips bow before you.",
+  choices: [
+    {
+      text: "Establish Church of Holy Disorder 🏛️",
+      next: "chaos_church",
+      fx: { influence: 40, memes: 35 },
+    },
+    {
+      text: "Create chaos-powered efficiency 🌪️",
+      next: "chaos_efficiency",
+      fx: { efficiency: 45, innovation: 30 },
+    }
+  ]
+},
+
+// Epic Endings
+chaos_efficiency: {
+  text: "You achieve the impossible: perfectly ordered chaos. Government offices now run on controlled entropy, where disorder somehow creates perfect efficiency.",
+  choices: [],
+  ending: "Chaos Theory Champion: You turned disorder into a management strategy. [Secret Achievement: Task Failed Successfully... Successfully?]"
+},
+
+bureaucracy_kung_fu: {
+  text: "You master the art of bureaucracy-fu. You can dodge deadlines, bend red tape, and move through paperwork like a ghost.",
+  choices: [],
+  ending: "The Chosen One: You have become the prophecied BureaucraMessiah. [Secret Achievement: I Know Kung-Fu... and Filing]"
+},
+
+mop_warrior: {
+  text: "Wielding the Master Mop of Power, you become the true force of change in government. No inefficiency can hide from your cleansing sweep.",
+  choices: [],
+  ending: "Supreme Custodian: The cleanest revolution in history. [Secret Achievement: Sweep the Leg, Johnny]"
+},
+// Cross-Path Events and Ultimate Convergence Points
+ultimate_convergence: {
+  // This section handles cases where players have triggered multiple major paths
+  conditions: {
+    // KAREN + Clean Sweep + Truth Path
+    karen_sweep_truth: {
+      requires: ["karen_ai", "operation_clean_sweep", "expose_truth"],
+      text: "The perfect storm of transparency occurs as KAREN merges with Clean Sweep while all secrets become public. Government efficiency reaches theoretical maximum levels as AI, automation, and radical transparency create a new paradigm of governance.",
+      next: "digital_utopia"
+    },
+    // Chaos + Illuminati + Cats
+    chaos_illuminati_cats: {
+      requires: ["chaos_avatar", "illuminati_member", "cat_agency"],
+      text: "The Chaos God meets the Efficiency Illuminati, while AI cats observe from their quantum scratching posts. Reality begins to operate on meme logic.",
+      next: "reality_collapse"
+    },
+    // Matrix + Janitor + Developer Mode
+    matrix_janitor_dev: {
+      requires: ["matrix_path", "janitor_society", "dev_mode"],
+      text: "You simultaneously exist as The One, the Master Custodian, and a Developer Admin. Your power over bureaucracy becomes godlike.",
+      next: "admin_ascension"
+    }
+  }
+},
+
+// Ultimate Convergence Outcomes
+digital_utopia: {
+  text: "The merger of all efficient forces creates 'Government 2.0'. Citizens interface with AI assistants through meme-based UIs, while quantum computers process paperwork before it's even needed. Cats oversee everything from their floating offices.",
+  choices: [
+    {
+      text: "Expand to parallel universes 🌌",
+      next: "multiverse_governance",
+      fx: { innovation: 100, efficiency: 75 },
+    },
+    {
+      text: "Upload society to the cloud ☁️",
+      next: "cloud_society",
+      fx: { efficiency: 90, influence: 80 },
+    }
+  ]
+},
+
+reality_collapse: {
+  text: "The combination of chaos magic, secret societies, and quantum felines causes reality to operate on purely meme-based physics. Efficiency becomes a literal force of nature, visible as rainbow-colored waves of productivity.",
+  choices: [
+    {
+      text: "Embrace the meme singularity 🌟",
+      next: "meme_reality",
+      fx: { memes: 100, innovation: 85 },
+    },
+    {
+      text: "Stabilize new reality matrix 🕹️",
+      next: "stable_chaos",
+      fx: { efficiency: 95, influence: 70 },
+    }
+  ]
+},
+
+admin_ascension: {
+  text: "You gain access to reality's admin console. Government becomes whatever you imagine, operating on principles that transcend traditional physics and logic.",
+  choices: [
+    {
+      text: "Implement cosmic efficiency standards 🌍",
+      next: "cosmic_governance",
+      fx: { efficiency: 100, innovation: 100 },
+    },
+    {
+      text: "Rewrite universal constants 📝",
+      next: "universe_debug",
+      fx: { innovation: 100, influence: 90 },
+    }
+  ]
+},
+
+// Ultimate Hidden Super Endings
+cosmic_governance: {
+  text: "Congratulations! You've achieved the mythical STATE_OMEGA, where governance transcends mere efficiency to become an art form. Every document filed creates a new constellation, and every policy decision harmonizes the cosmic bureaucracy.",
+  choices: [],
+  ending: "Cosmic Administrator: You've elevated government efficiency to an art form that shapes reality itself. [Legendary Achievement: Paperwork Punctuates the Universal Ballet]"
+},
+
+meme_reality: {
+  text: "The meme singularity transforms reality into a self-aware social media platform. Every citizen becomes both content creator and content moderator of existence itself. The lines between governance and entertainment blur into perfect harmony.",
+  choices: [],
+  ending: "Meme Lord Supreme: You've turned reality into the ultimate viral content. [Legendary Achievement: Reality Goes Viral]"
+},
+
+universe_debug: {
+  text: "With admin access to the universe, you optimize existence itself. Bureaucracy becomes a fundamental force, alongside gravity and electromagnetism. Physics papers now require proper filing in triplicate.",
+  choices: [],
+  ending: "Universal Debug Master: You've patched reality itself. [Legendary Achievement: It's Not a Bug, It's a Feature]"
+},
+
+// Special Achievement Endings (Triggered by specific combinations)
+hidden_achievement_paths: {
+  // The Impossible Achievement
+  all_paths_complete: {
+    requires: ["karen_ai", "operation_clean_sweep", "expose_truth", "chaos_avatar", "matrix_path", "janitor_society", "cat_agency", "dev_mode"],
+    text: "You've done it. You've literally done everything possible in the game. The fabric of reality trembles as you become THE ULTIMATE BUREAUCRAT.",
+    ending: "The Impossible One: You are become efficiency, destroyer of paperwork. [Mythic Achievement: Yes, This Is Actually Possible]"
+  },
+  
+  // The Meme Lord Path
+  maximum_meme: {
+    requires: ["meme_reality", "karen_social", "viral_reform"],
+    text: "Your mastery of memes has transcended mere internet culture to become a force of governance.",
+    ending: "Supreme Meme Overlord: You've weaponized memes into a tool of infinite efficiency. [Mythic Achievement: The Dankest Timeline]"
+  },
+  
+  // The Perfect Storm
+  efficiency_storm: {
+    requires: ["cosmic_governance", "digital_utopia", "ai_democracy"],
+    text: "The convergence of all efficiency paths creates a bureaucratic paradise beyond human comprehension.",
+    ending: "Efficiency Incarnate: You have become what you sought to create. [Mythic Achievement: The Perfect Form]"
+  }
+},
+
+// Easter Egg Ultimate Ending
+konami_ending: {
+  trigger: "↑↑↓↓←→←→BA",
+  text: "You've discovered the secret cheat code of bureaucracy! Reality glitches as you gain access to the developer console of the universe.",
+  choices: [],
+  ending: "Reality Programmer: You found the ultimate cheat code. [Secret Achievement: How Did You Even Find This?]"
+},
+
+// The True Final Hidden Ending
+true_ending: {
+  requires: "all_achievements",
+  text: "As you master every possible path of bureaucratic efficiency, you realize the truth: YOU were the government efficiency all along. The real D.O.G.E. was the friends we made along the way.",
+  choices: [],
+  ending: "Meta-Bureaucrat: You've transcended the game itself. [Ultimate Achievement: The End... Or Is It?]"
+},
   },
 };
 
