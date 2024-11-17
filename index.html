@@ -6,16 +6,6 @@
     <title>D.O.G.E</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./styles.css" />
-    <!-- Add Framer Motion -->
-    <script src="https://unpkg.com/framer-motion@10/dist/framer-motion.umd.js" crossorigin></script>
-    <style>
-      html, body, #root {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: #1a202c;
-      }
-    </style>
     <script>
       tailwind.config = {
         content: ["./**/*.{html,js}"],
@@ -29,15 +19,13 @@
   <body>
     <div id="root"></div>
     
-    <!-- Development version of React for better error messages -->
+    <!-- Development version of React -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
-    <!-- Your app scripts -->
     <script type="text/babel" data-type="module">
       const { useState } = React;
-      const { motion, AnimatePresence } = FramerMotion;
       
       // Game constants and components
       const PHASES = {
@@ -77,7 +65,146 @@
         </svg>
       );
 
-      // [ADD YOUR GAME DATA (const G = {...}) HERE]
+      // Footer Component
+      function Footer() {
+        return (
+          <div className="bg-gray-900 text-white py-4 mt-4 text-center w-full transition-all duration-300 hover:bg-gray-800">
+            <p className="flex items-center justify-center gap-2">
+              Made with <span className="text-red-500 animate-pulse">❤</span> by the OG D.O.G.E. Community
+            </p>
+            <p className="mt-2 text-gray-400">
+              OG Doge CA: A5WzrfzWa4kjgEjSXCbnsn1xy5Aanuq3TCZJL1dhpump
+            </p>
+          </div>
+        );
+      }
+
+      // Main App Component
+      function App() {
+        const [state, setState] = useState({
+          phase: PHASES.TITLE,
+          scene: "intro",
+          stats: { efficiency: 0, influence: 0, innovation: 0, memes: 0 },
+          path: [],
+          ending: null,
+        });
+        
+        const [imageLoaded, setImageLoaded] = useState(false);
+
+        const handleChoice = (choice) => {
+          const nextScene = G.scenes[choice.next];
+          if (!nextScene) return;
+
+          const newStats = { ...state.stats };
+          Object.keys(choice.fx || {}).forEach((key) => {
+            newStats[key] += choice.fx[key];
+          });
+
+          const isEnding = !nextScene.choices || nextScene.choices.length === 0;
+
+          setState((prev) => ({
+            ...prev,
+            scene: choice.next,
+            stats: newStats,
+            path: [...prev.path, choice.next],
+            phase: isEnding ? PHASES.ENDING : PHASES.STORY,
+            ending: isEnding ? nextScene.ending : null,
+          }));
+        };
+
+        const resetGame = () => setState({
+          phase: PHASES.TITLE,
+          scene: "intro",
+          stats: { efficiency: 0, influence: 0, innovation: 0, memes: 0 },
+          path: [],
+          ending: null,
+        });
+
+        return (
+          <div className="min-h-screen flex flex-col justify-between bg-gradient-custom">
+            {/* Stats Bar */}
+            <div className="fixed top-0 left-0 right-0 bg-gray-900/95 text-white p-4 shadow-lg flex justify-around z-50 backdrop-blur-sm transition-all duration-300">
+              <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-200">
+                <TrendingUp /> <span>Efficiency: {state.stats.efficiency}</span>
+              </div>
+              <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-200">
+                <Users /> <span>Influence: {state.stats.influence}</span>
+              </div>
+              <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-200">
+                <Brain /> <span>Innovation: {state.stats.innovation}</span>
+              </div>
+              <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-200">
+                <Star /> <span>Memes: {state.stats.memes}</span>
+              </div>
+            </div>
+
+            {/* Game Content */}
+            <div className="p-8 bg-gray-800/90 backdrop-blur rounded-lg shadow-xl text-white w-11/12 md:w-3/4 mt-24 mx-auto mb-8 transition-all duration-300">
+              {state.phase === PHASES.TITLE ? (
+                <div className="text-center space-y-6">
+                  <div className="relative mx-auto w-full max-w-md mb-8">
+                    <img 
+                      src="dogeog.jpg" 
+                      alt="DOGE Logo" 
+                      className={`w-full h-auto rounded-lg shadow-xl transition-all duration-500 ${
+                        imageLoaded 
+                          ? 'opacity-100 transform-none' 
+                          : 'opacity-0 translate-y-4'
+                      }`}
+                      onLoad={() => setImageLoaded(true)}
+                      style={{ maxWidth: '680px', maxHeight: '501px' }}
+                    />
+                  </div>
+                  <h1 className="text-5xl font-bold title-gradient float-animation">
+                    D.O.G.E
+                  </h1>
+                  <p className="text-xl text-gray-300">
+                    Department Of Government Efficiency
+                  </p>
+                  <button
+                    className="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
+                    onClick={() => setState(prev => ({ ...prev, phase: PHASES.STORY }))}
+                  >
+                    Start Adventure
+                  </button>
+                </div>
+              ) : (
+                // [PASTE YOUR GAME CONTENT HERE]
+                state.phase === PHASES.ENDING ? (
+  <div className="text-center space-y-6">
+    <h1 className="text-3xl font-bold">Ending</h1>
+    <p className="mt-4">{G.scenes[state.scene].text}</p>
+    <p className="mt-4 text-lg font-semibold">{state.ending}</p>
+    <button
+      className="mt-6 px-6 py-2 bg-green-500 text-white rounded"
+      onClick={resetGame}
+    >
+      Replay
+    </button>
+  </div>
+) : (
+  <>
+    <p className="text-lg mb-6">{G.scenes[state.scene].text}</p>
+    {G.scenes[state.scene].choices.map((choice, i) => (
+      <button
+        key={i}
+        className="block w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-left text-white rounded mb-2 transition-colors"
+        onClick={() => handleChoice(choice)}
+      >
+        {choice.text}
+      </button>
+    ))}
+  </>
+)
+              )}
+            </div>
+
+            <Footer />
+          </div>
+        );
+      }
+
+      // [PASTE YOUR GAME DATA (const G = {...}) HERE]
       const G = {
         scenes: {
     // Introduction Scene
@@ -1019,204 +1146,6 @@
     },
   },
 };
-
-      const initialState = {
-        phase: PHASES.TITLE,
-        scene: "intro",
-        stats: { efficiency: 0, influence: 0, innovation: 0, memes: 0 },
-        path: [],
-        ending: null,
-      };
-
-      // Enhanced Footer Component
-      function Footer() {
-        return (
-          <motion.footer 
-            className="bg-gray-900 text-white py-4 mt-4 text-center w-full"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <p className="flex items-center justify-center gap-2">
-              Made with <motion.span 
-                className="text-red-500"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-              >❤</motion.span> by the OG D.O.G.E. Community
-            </p>
-            <p className="mt-2 text-gray-400">
-              OG Doge CA: A5WzrfzWa4kjgEjSXCbnsn1xy5Aanuq3TCZJL1dhpump
-            </p>
-          </motion.footer>
-        );
-      }
-
-      // Main App Component
-      function App() {
-        const [state, setState] = useState(initialState);
-        const [imageLoaded, setImageLoaded] = useState(false);
-
-        const handleChoice = (choice) => {
-          const nextScene = G.scenes[choice.next];
-          if (!nextScene) return;
-
-          const newStats = { ...state.stats };
-          Object.keys(choice.fx || {}).forEach((key) => {
-            newStats[key] += choice.fx[key];
-          });
-
-          const isEnding = !nextScene.choices || nextScene.choices.length === 0;
-
-          setState((prev) => ({
-            ...prev,
-            scene: choice.next,
-            stats: newStats,
-            path: [...prev.path, choice.next],
-            phase: isEnding ? PHASES.ENDING : PHASES.STORY,
-            ending: isEnding ? nextScene.ending : null,
-          }));
-        };
-
-        const resetGame = () => setState(initialState);
-
-        return (
-          <div className="min-h-screen flex flex-col justify-between bg-gradient-to-b from-gray-900 to-gray-800">
-            {/* Stats Bar */}
-            <motion.div 
-              className="fixed top-0 left-0 right-0 bg-gray-900/95 backdrop-blur-sm text-white p-4 shadow-lg flex justify-around z-50"
-              initial={{ y: -100 }}
-              animate={{ y: 0 }}
-            >
-              <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-                <TrendingUp /> <span>Efficiency: {state.stats.efficiency}</span>
-              </motion.div>
-              <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-                <Users /> <span>Influence: {state.stats.influence}</span>
-              </motion.div>
-              <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-                <Brain /> <span>Innovation: {state.stats.innovation}</span>
-              </motion.div>
-              <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-                <Star /> <span>Memes: {state.stats.memes}</span>
-              </motion.div>
-            </motion.div>
-
-            {/* Game Content */}
-            <AnimatePresence mode="wait">
-              <motion.div 
-                key={state.phase}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="p-8 bg-gray-800/90 backdrop-blur rounded-lg shadow-xl text-white max-w-3xl mx-auto mt-24 mb-8"
-              >
-                {state.phase === PHASES.TITLE ? (
-                  <motion.div
-                    className="text-center space-y-6"
-                    initial={{ scale: 0.9 }}
-                    animate={{ scale: 1 }}
-                  >
-                    <motion.img 
-                      src="dogeog.jpg" 
-                      alt="DOGE Logo" 
-                      className="mx-auto rounded-lg shadow-lg mb-6 max-w-md w-full"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ 
-                        opacity: imageLoaded ? 1 : 0,
-                        y: imageLoaded ? 0 : 20
-                      }}
-                      transition={{ duration: 0.6 }}
-                      whileHover={{ scale: 1.02 }}
-                      onLoad={() => setImageLoaded(true)}
-                      onError={(e) => {
-                        console.error('Image failed to load');
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                    <motion.h1 
-                      className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-                      animate={{ y: [0, -10, 0] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      D.O.G.E
-                    </motion.h1>
-                    <motion.p 
-                      className="text-xl text-gray-300"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      Department Of Government Efficiency
-                    </motion.p>
-                    <motion.button
-                      className="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold shadow-lg"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setState(prev => ({ ...prev, phase: PHASES.STORY }))}
-                    >
-                      Start Adventure
-                    </motion.button>
-                  </motion.div>
-                ) : state.phase === PHASES.ENDING ? (
-                  <motion.div
-                    className="text-center space-y-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                  >
-                    <h1 className="text-4xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
-                      Mission Complete
-                    </h1>
-                    <p className="text-xl text-gray-300">{G.scenes[state.scene].text}</p>
-                    <motion.p 
-                      className="text-2xl font-semibold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                    >
-                      {state.ending}
-                    </motion.p>
-                    <motion.button
-                      className="px-8 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg text-lg font-semibold"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={resetGame}
-                    >
-                      Play Again
-                    </motion.button>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    className="space-y-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                  >
-                    <p className="text-xl text-gray-200 leading-relaxed">
-                      {G.scenes[state.scene].text}
-                    </p>
-                    <motion.div className="space-y-3">
-                      {G.scenes[state.scene].choices.map((choice, i) => (
-                        <motion.button
-                          key={i}
-                          className="w-full px-6 py-3 bg-gray-700 hover:bg-gray-600 text-left rounded-lg relative overflow-hidden group"
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => handleChoice(choice)}
-                        >
-                          <motion.div
-                            className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-10 transition-opacity"
-                            initial={false}
-                          />
-                          <span className="relative z-10">{choice.text}</span>
-                        </motion.button>
-                      ))}
-                    </motion.div>
-                  </motion.div>
-                )}
-              </motion.div>
-            </AnimatePresence>
-
-            <Footer />
-          </div>
-        );
-      }
 
       // Mount the app
       const root = ReactDOM.createRoot(document.getElementById('root'));
